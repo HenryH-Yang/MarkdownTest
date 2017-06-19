@@ -1,7 +1,6 @@
 IBM Watson Conversation Service
 =====================
-* auto-gen TOC:
-{:toc}
+
 
 [toc]
 
@@ -41,7 +40,7 @@ Gather as many **actual customer questions, commands, or other inputs** as possi
 Got  error message **Invalid Request Body, Code: 400** when used *conversation.create_intent*
 
 
-```python {.linenums}
+```python
 from watson_developer_cloud import ConversationV1
 intent="Henry Testing"
 create_intent=conversation.create_intent(
@@ -60,3 +59,9 @@ WCS(Watson Conversation Service) have detected the correct intent and entity, bu
 
 ### Solution 2: Check the sequence of sibling nodes.
 Because *Conversation* will check if the condition is satisfied from top to bottom, the node with stricter condition should be placed above the looser node, otherwise the stricter one cannot be checked.
+
+
+###Problem 3:
+
+This is a **test**.
+This is also a *test*.
