@@ -86,7 +86,7 @@
 
 
 
-<pre class="prettyprint"><code class="language-python hljs "><span class="hljs-keyword">from</span> watson_developer_cloud <span class="hljs-keyword">import</span> ConversationV1
+<pre class="linenums prettyprint"><code class="language-python hljs "><span class="hljs-keyword">from</span> watson_developer_cloud <span class="hljs-keyword">import</span> ConversationV1
 intent=<span class="hljs-string">"Henry Testing"</span>
 create_intent=conversation.create_intent(
               workspace_id=workspace_viola,
@@ -97,8 +97,6 @@ create_intent=conversation.create_intent(
   <p>raise WatsonException(error_message) <br>
   Watson_developer_cloud.watson_developer_cloud_service.WatsonException: Error: Invalid Request Body, Code: 400</p>
 </blockquote>
-
-
 
 <h3 id="solution-1-check-if-the-intent-is-valid">Solution 1: Check if the <em>intent</em> is valid</h3>
 
