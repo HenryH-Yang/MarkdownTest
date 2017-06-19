@@ -5,6 +5,7 @@ IBM Watson Conversation Service
 
 ---
 ##Workspace
+
 ###Intent
 An *intent* is a purpose or goal expressed in a customer's input, such as answering a question or processing a bill payment. By recognizing the intent expressed in a customer's input, Conversation can choose the correct dialog flow for responding to it.
 
