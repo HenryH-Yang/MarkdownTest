@@ -19,21 +19,21 @@ Gather as many **actual customer questions, commands, or other inputs** as possi
 #### counterexample
 *Counterexamples* are examples that have been marked as irrelevant input.
 ### Entity
-
+description of *entity*
 #### value
-
+description of *value*
 #### synonym
-
+description of *synonym*
 ### Dialog
-
+description of *Dialog*
 #### node
-
+description of *node*
 ##### condition
-
+description of *condition*
 ##### response
-
+description of *response*
 ##### context
-
+description of *context*
 
 ## Problems and Solutions
 ### Problem 1: Invalid Request Body, Code: 400
