@@ -1,10 +1,5 @@
 <h1 id="ibm-watson-conversation-service">IBM Watson Conversation Service</h1>
 
-<ul>
-<li>auto-gen TOC: <br>
-{:toc}</li>
-</ul>
-
 <p><div class="toc">
 <ul>
 <li><a href="#ibm-watson-conversation-service">IBM Watson Conversation Service</a><ul>
@@ -35,6 +30,7 @@
 <li><a href="#solution-1-check-if-the-intent-is-valid">Solution 1: Check if the intent is valid</a></li>
 <li><a href="#problem-2-dialog-cant-go-to-the-correct-node">Problem 2: Dialog can’t go to the correct node.</a></li>
 <li><a href="#solution-2-check-the-sequence-of-sibling-nodes">Solution 2: Check the sequence of sibling nodes.</a></li>
+<li><a href="#problem-3">Problem 3:</a></li>
 </ul>
 </li>
 </ul>
@@ -44,6 +40,8 @@
 </p>
 
 <hr>
+
+
 
 <h2 id="workspace">Workspace</h2>
 
@@ -115,12 +113,19 @@
 
 
 
-<pre class="linenums prettyprint prettyprinted"><ol class="linenums"><li class="L0"><code class="language-python"><span class="kwd">from</span><span class="pln"> watson_developer_cloud </span><span class="kwd">import</span><span class="pln"> </span><span class="typ">ConversationV1</span></code></li><li class="L1"><code class="language-python"><span class="pln">intent</span><span class="pun">=</span><span class="str">"Henry Testing"</span></code></li><li class="L2"><code class="language-python"><span class="pln">create_intent</span><span class="pun">=</span><span class="pln">conversation</span><span class="pun">.</span><span class="pln">create_intent</span><span class="pun">(</span></code></li><li class="L3"><code class="language-python"><span class="pln">              workspace_id</span><span class="pun">=</span><span class="pln">workspace_viola</span><span class="pun">,</span></code></li><li class="L4"><code class="language-python"><span class="pln">              intent</span><span class="pun">=</span><span class="pln">intent</span><span class="pun">)</span></code></li><li class="L5"><code class="language-python"><span class="kwd">print</span><span class="pln"> create_intent</span></code></li></ol></pre>
+<pre class="prettyprint prettyprinted"><code class="language-python"><span class="kwd">from</span><span class="pln"> watson_developer_cloud </span><span class="kwd">import</span><span class="pln"> </span><span class="typ">ConversationV1</span><span class="pln">
+intent</span><span class="pun">=</span><span class="str">"Henry Testing"</span><span class="pln">
+create_intent</span><span class="pun">=</span><span class="pln">conversation</span><span class="pun">.</span><span class="pln">create_intent</span><span class="pun">(</span><span class="pln">
+              workspace_id</span><span class="pun">=</span><span class="pln">workspace_viola</span><span class="pun">,</span><span class="pln">
+              intent</span><span class="pun">=</span><span class="pln">intent</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">print</span><span class="pln"> create_intent</span></code></pre>
 
 <blockquote>
   <p>raise WatsonException(error_message) <br>
   Watson_developer_cloud.watson_developer_cloud_service.WatsonException: Error: Invalid Request Body, Code: 400</p>
 </blockquote>
+
+
 
 <h3 id="solution-1-check-if-the-intent-is-valid">Solution 1: Check if the <em>intent</em> is valid</h3>
 
@@ -137,3 +142,10 @@
 <h3 id="solution-2-check-the-sequence-of-sibling-nodes">Solution 2: Check the sequence of sibling nodes.</h3>
 
 <p>Because <em>Conversation</em> will check if the condition is satisfied from top to bottom, the node with stricter condition should be placed above the looser node, otherwise the stricter one cannot be checked.</p>
+
+
+
+<h3 id="problem-3">Problem 3:</h3>
+
+<p>This is a <strong>test</strong>. <br>
+This is also a <em>test</em>.</p>
