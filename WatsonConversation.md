@@ -39,7 +39,7 @@ Gather as many **actual customer questions, commands, or other inputs** as possi
 Got  error message **Invalid Request Body, Code: 400** when used *conversation.create_intent*
 
 
-```python
+```python {.linenums}
 from watson_developer_cloud import ConversationV1
 intent="Henry Testing"
 create_intent=conversation.create_intent(
