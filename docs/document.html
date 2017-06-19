@@ -1,0 +1,143 @@
+<h1 id="ibm-watson-conversation-service">IBM Watson Conversation Service</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#ibm-watson-conversation-service">IBM Watson Conversation Service</a><ul>
+<li><a href="#workspace">Workspace</a><ul>
+<li><a href="#intent">Intent</a><ul>
+<li><a href="#example">example</a></li>
+<li><a href="#counterexample">counterexample</a></li>
+</ul>
+</li>
+<li><a href="#entity">Entity</a><ul>
+<li><a href="#value">value</a></li>
+<li><a href="#synonym">synonym</a></li>
+</ul>
+</li>
+<li><a href="#dialog">Dialog</a><ul>
+<li><a href="#node">node</a><ul>
+<li><a href="#condition">condition</a></li>
+<li><a href="#response">response</a></li>
+<li><a href="#context">context</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#problems-and-solutions">Problems and Solutions</a><ul>
+<li><a href="#problem-1-invalid-request-body-code-400">Problem 1: Invalid Request Body, Code: 400</a></li>
+<li><a href="#solution-1-check-if-the-intent-is-valid">Solution 1: Check if the intent is valid</a></li>
+<li><a href="#problem-2-dialog-cant-go-to-the-correct-node">Problem 2: Dialog can’t go to the correct node.</a></li>
+<li><a href="#solution-2-check-the-sequence-of-sibling-nodes">Solution 2: Check the sequence of sibling nodes.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+<hr>
+
+
+
+<h2 id="workspace">Workspace</h2>
+
+
+
+<h3 id="intent">Intent</h3>
+
+<p>An <em>intent</em> is a purpose or goal expressed in a customer’s input, such as answering a question or processing a bill payment. By recognizing the intent expressed in a customer’s input, Conversation can choose the correct dialog flow for responding to it.</p>
+
+
+
+<h4 id="example">example</h4>
+
+<p>Gather as many <strong>actual customer questions, commands, or other inputs</strong> as possible. Using input from real users gives a better picture of the expected input than having experts create lists of possible utterances. Remember that customers might phrase the same kind of request in many different ways. For example, the following examples all represent requests for weather information:</p>
+
+<ul>
+<li>Tell me the current weather conditions.</li>
+<li>Is it raining?</li>
+<li>What’s it like outside?</li>
+</ul>
+
+
+
+<h4 id="counterexample">counterexample</h4>
+
+<p><em>Counterexamples</em> are examples that have been marked as irrelevant input.</p>
+
+
+
+<h3 id="entity">Entity</h3>
+
+
+
+<h4 id="value">value</h4>
+
+
+
+<h4 id="synonym">synonym</h4>
+
+
+
+<h3 id="dialog">Dialog</h3>
+
+
+
+<h4 id="node">node</h4>
+
+
+
+<h5 id="condition">condition</h5>
+
+
+
+<h5 id="response">response</h5>
+
+
+
+<h5 id="context">context</h5>
+
+
+
+<h2 id="problems-and-solutions">Problems and Solutions</h2>
+
+
+
+<h3 id="problem-1-invalid-request-body-code-400">Problem 1: Invalid Request Body, Code: 400</h3>
+
+<p>Got  error message <strong>Invalid Request Body, Code: 400</strong> when used <em>conversation.create_intent</em></p>
+
+
+
+<pre class="prettyprint"><code class="language-python hljs "><span class="hljs-keyword">from</span> watson_developer_cloud <span class="hljs-keyword">import</span> ConversationV1
+intent=<span class="hljs-string">"Henry Testing"</span>
+create_intent=conversation.create_intent(
+              workspace_id=workspace_viola,
+              intent=intent)
+<span class="hljs-keyword">print</span> create_intent</code></pre>
+
+<blockquote>
+  <p>raise WatsonException(error_message) <br>
+  Watson_developer_cloud.watson_developer_cloud_service.WatsonException: Error: Invalid Request Body, Code: 400</p>
+</blockquote>
+
+
+
+<h3 id="solution-1-check-if-the-intent-is-valid">Solution 1: Check if the <em>intent</em> is valid</h3>
+
+<p><em>Intent</em> cannot include space, for example, “Henry Test” is invalid while “HenryTest” is valid.</p>
+
+
+
+<h3 id="problem-2-dialog-cant-go-to-the-correct-node">Problem 2: Dialog can’t go to the correct node.</h3>
+
+<p>WCS(Watson Conversation Service) have detected the correct intent and entity, but didn’t go to the correct node.</p>
+
+
+
+<h3 id="solution-2-check-the-sequence-of-sibling-nodes">Solution 2: Check the sequence of sibling nodes.</h3>
+
+<p>Because <em>Conversation</em> will check if the condition is satisfied from top to bottom, the node with stricter condition should be placed above the looser node, otherwise the stricter one cannot be checked.</p>
