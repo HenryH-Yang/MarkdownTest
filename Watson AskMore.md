@@ -4,7 +4,7 @@
 Salesforce->Heroku: Question
 Heroku->Professional Watson: Question
 Professional Watson->Heroku: Answer
-Heroku-->Chitchat Watson: Question (if no match answer)
+Heroku-->Chitchat Watson: Question (if there is no matched answer)
 Chitchat Watson-->Heroku: Chitchat response
 Heroku->Salesforce: Response
 ```
